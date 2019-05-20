@@ -1,0 +1,33 @@
+@import url('https://rsms.me/inter/inter.css');
+* {
+    margin: 0
+}
+
+.ion-padding {
+    background: #211e1e;
+    color: #FCFEFF;
+    min-height: 100vh;
+}
+
+.ion-padding h3 {
+    margin-bottom: 40px;
+}
+
+ion-item-divider {
+    background: #5f2fb6;
+    color: #FCFEFF;
+    z-index: 0
+}
+
+.addSomething {
+    margin-bottom: 20px;
+}
+
+ion-padding .input-wrapper {
+    display: flex;
+    justify-content: space-between
+}
+
+ion-menu {
+    z-index: 2
+}
