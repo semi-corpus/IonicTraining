@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      IonicTraining
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header"><h1>Ma Liste</h1></div>
+
+  <div class="ion-padding">
+    <ion-list-header style="color:#FCFEFF;">Fruits & Légumes</ion-list-header>
+
+    <!-- Fruits -->
+    <ion-item-group class="malist">
+      <ion-item-divider><ion-label>Fruits</ion-label></ion-item-divider>
+      <ion-item *ngFor="let elem of fruits">{{elem.name}}</ion-item>
+      <ion-item *ngFor="let elem of fruits">{{elem.price}}</ion-item>
+    </ion-item-group>
+
+    <ion-item class="addSomething">
+      <ion-label position="floating">Insérer un fruit</ion-label>
+      <ion-input name="fruit" [(ngModel)]="newFruit" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-label position="floating">Prix du fruit</ion-label>
+      <ion-button slot="ende" (click)="addFruit().name">Ajouter</ion-button>
+      <ion-input name="fruitPrice" [(ngModel)]="newFruit" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-button slot="end" (click)="addFruit()">Ajouter</ion-button>
+    </ion-item>
+
+
+    <!-- Légumes -->
+    <ion-item-group class="malist">
+      <ion-item-divider><ion-label>Légumes</ion-label></ion-item-divider>
+      <ion-item *ngFor="let elem of vegs">{{elem.name}}</ion-item>
+      <ion-item *ngFor="let elem of vegs">{{elem.price}}</ion-item>
+    </ion-item-group>
+
+    <ion-item class="addSomething">
+      <ion-label position="floating">Insérer un légume</ion-label>
+      <ion-input name="veg" [(ngModel)]="newVeg" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-label position="floating">Prix du légume</ion-label>
+      <ion-input name="vegPrice" [(ngModel)]="newVeg" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-button slot="end" (click)="addVeg()">Ajouter</ion-button>
+    </ion-item>
+    
+  </div>
+</ion-content>
