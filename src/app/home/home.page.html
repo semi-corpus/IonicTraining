@@ -21,10 +21,10 @@
 
     <ion-item class="addSomething">
       <ion-label position="floating">Insérer un fruit</ion-label>
-      <ion-input name="fruit" [(ngModel)]="newFruit" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-input name="fruit" [(ngModel)]="newFruit.name" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
       <ion-label position="floating">Prix du fruit</ion-label>
-      <ion-button slot="ende" (click)="addFruit().name">Ajouter</ion-button>
-      <ion-input name="fruitPrice" [(ngModel)]="newFruit" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-button slot="ende" (click)="addFruit()">Ajouter</ion-button>
+      <ion-input name="fruitPrice" [(ngModel)]="newFruit.price" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
       <ion-button slot="end" (click)="addFruit()">Ajouter</ion-button>
     </ion-item>
 
@@ -38,9 +38,9 @@
 
     <ion-item class="addSomething">
       <ion-label position="floating">Insérer un légume</ion-label>
-      <ion-input name="veg" [(ngModel)]="newVeg" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-input name="veg" [(ngModel)]="newVeg.name" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
       <ion-label position="floating">Prix du légume</ion-label>
-      <ion-input name="vegPrice" [(ngModel)]="newVeg" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-input name="vegPrice" [(ngModel)]="newVeg.price" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
       <ion-button slot="end" (click)="addVeg()">Ajouter</ion-button>
     </ion-item>
     
