@@ -29,7 +29,11 @@ ion-item-divider {
     color: #FCFEFF;
 }
 
-ion-item-group,
 .addSomething {
     margin-bottom: 20px;
+}
+
+ion-padding .input-wrapper {
+    display: flex;
+    justify-content: space-between
 }

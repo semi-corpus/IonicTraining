@@ -13,35 +13,65 @@
     <ion-list-header style="color:#FCFEFF;">Fruits & Légumes</ion-list-header>
 
     <!-- Fruits -->
-    <ion-item-group class="malist">
+    <ion-item-group>
+
       <ion-item-divider><ion-label>Fruits</ion-label></ion-item-divider>
-      <ion-item *ngFor="let elem of fruits">{{elem.name}}</ion-item>
-      <ion-item *ngFor="let elem of fruits">{{elem.price}}</ion-item>
+
+      <ion-item-sliding *ngFor="let elem of fruits; index as i">
+        <ion-item>
+          <p>{{elem.name}}</p>
+          <p style="position:absolute;right:20px;">{{elem.price}}</p>
+          <ion-item-options>
+            <ion-item-option>
+              <ion-button (click)="deleteFruits(i)">
+                <ion-icon name="ios-trash"></ion-icon>
+              </ion-button>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item>
+      </ion-item-sliding>
+
     </ion-item-group>
+   
 
     <ion-item class="addSomething">
       <ion-label position="floating">Insérer un fruit</ion-label>
-      <ion-input name="fruit" [(ngModel)]="newFruit.name" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-input name="fruit" [(ngModel)]="newFruit.name" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput #nameFruit="ngModel"></ion-input>
       <ion-label position="floating">Prix du fruit</ion-label>
-      <ion-button slot="ende" (click)="addFruit()">Ajouter</ion-button>
-      <ion-input name="fruitPrice" [(ngModel)]="newFruit.price" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
-      <ion-button slot="end" (click)="addFruit()">Ajouter</ion-button>
+      <ion-input name="fruitPrice" [(ngModel)]="newFruit.price" required pattern="[0-9.]{0,4}" clearInput type="text" #priceFruit="ngModel"></ion-input>
+      <small [hidden]="!priceFruit.errors['pattern'] || priceFruit.untouched" style="color:grey;padding-bottom:10px;">Vous ne pouvez utiliser que des chiffres et un point</small>
+      <ion-button shape="round" slot="end" (click)="addFruit()" [disabled]="priceFruit.invalid">Ajouter</ion-button>
     </ion-item>
 
 
     <!-- Légumes -->
-    <ion-item-group class="malist">
-      <ion-item-divider><ion-label>Légumes</ion-label></ion-item-divider>
-      <ion-item *ngFor="let elem of vegs">{{elem.name}}</ion-item>
-      <ion-item *ngFor="let elem of vegs">{{elem.price}}</ion-item>
+    <ion-item-group>
+
+      <ion-item-divider><ion-label>Vegs</ion-label></ion-item-divider>
+
+      <ion-item-sliding *ngFor="let elem of vegs; index as i">
+        <ion-item>
+          <p>{{elem.name}}</p>
+          <p style="position:absolute;right:20px;">{{elem.price}}</p>
+          <ion-item-options>
+            <ion-item-option>
+              <ion-button (click)="deleteVegs(i)">
+                <ion-icon name="ios-trash"></ion-icon>
+              </ion-button>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item>
+      </ion-item-sliding>
+
     </ion-item-group>
 
     <ion-item class="addSomething">
       <ion-label position="floating">Insérer un légume</ion-label>
-      <ion-input name="veg" [(ngModel)]="newVeg.name" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
+      <ion-input name="veg" [(ngModel)]="newVeg.name" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput #nameVeg="ngModel"></ion-input>
       <ion-label position="floating">Prix du légume</ion-label>
-      <ion-input name="vegPrice" [(ngModel)]="newVeg.price" required minlength="3" maxlength="15" autocorrect spellcheck type="text" clearInput></ion-input>
-      <ion-button slot="end" (click)="addVeg()">Ajouter</ion-button>
+      <ion-input name="vegPrice" [(ngModel)]="newVeg.price" required pattern="[0-9.]{0,4}" clearInput type="text" #priceVeg="ngModel"></ion-input>
+      <small [hidden]="!priceVeg.errors['pattern'] || priceVeg.untouched" style="color:grey;padding-bottom:10px;">Vous ne pouvez utiliser que des chiffres et un point</small>
+      <ion-button shape="round" slot="end" (click)="addVeg()" [disabled]="priceVeg.invalid">Ajouter</ion-button>
     </ion-item>
     
   </div>

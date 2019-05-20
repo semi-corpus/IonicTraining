@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Fruits } from '../class/fruits';
-import { Vegs } from '../class/vegs';
+import { Fruit } from '../class/fruits';
+import { Veg } from '../class/vegs';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +9,23 @@ import { Vegs } from '../class/vegs';
 })
 
 export class HomePage{
-  fruits: Fruits[];
-  vegs: Vegs[];
-  newFruit: Fruits;
-  newVeg: Vegs;
+  fruits: Array<Fruit> = [];
+  vegs: Array<Veg> = [];
+  newFruit: Fruit;
+  newVeg: Veg;
+
 
   constructor(){
-    this.fruits = [],
-    this.vegs = []
+    this.fruits = [{
+      name: 'Kiwi',
+      price: .70
+    }];
+    this.vegs = [{
+      name: 'Carotte',
+      price: .75
+    }];
+    this.newFruit = new Fruit();
+    this.newVeg = new Veg();
   }
 
   ngOnInit(): void {}
@@ -24,11 +33,22 @@ export class HomePage{
   // Fruits
   addFruit(){
     this.fruits.push(this.newFruit)
+    this.newFruit = new Fruit()
   }
 
   // Vegs
   addVeg(){
     this.vegs.push(this.newVeg)
+    this.newVeg = new Veg()
   }
 
+  // Delete Fruits
+  deleteFruits(i:any){
+    this.fruits.splice(i)
+  }  
+  
+  // Delete Vegs
+  deleteVegs(i:any){
+    this.vegs.splice(i)
+  }
 }
