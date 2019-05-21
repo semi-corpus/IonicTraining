@@ -1,0 +1,32 @@
+<form [formGroup]="animalForm">
+  <ion-list>
+    <ion-item>
+      <ion-label>Nom :</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nom à l'écran :</ion-label>
+      <ion-input formControlName="printName" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Classe :</ion-label>
+      <ion-select formControlName="class">
+        <ion-select-option *ngFor="let option of options">{{option}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nom du petit :</ion-label>
+      <ion-input formControlName="childrenName" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nom de la femme :</ion-label>
+      <ion-input formControlName="femaleName" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nom du cri :</ion-label>
+      <ion-input formControlName="soundName" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button color="light" (click)="cancel()">Annuler</ion-button>
+  <ion-button color="primary" (click)="addAnimal()">Valider</ion-button>
+</form>

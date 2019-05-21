@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Animals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab-button (click)="openFormModal()" size="small" style="margin:15px auto">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+
+  <div class="animal-container" *ngFor="let item of items" [routerLink]="['/details/' + item.name]" button="true">
+    <div class="animal-icon">
+      <ion-icon [src]="item.icon"></ion-icon>
+    </div>
+    <div class="animal-infos">
+      <h2>{{item.printName}}</h2>
+      <p>{{item.class}}</p>
+    </div>
+  </div>
+
+</ion-content>

@@ -16,10 +16,9 @@ export class AlertPage implements OnInit {
 
   async presentAlert(){
     const alert = await this.alertcontroller.create({
-      header: 'Avertissement',
-      subHeader: 'Attention',
+      header: 'Hey, there',
+      subHeader: 'We will need your name',
       cssClass: 'alert',
-      message: "Ce Message s'affiche",
       buttons: [{
         text: 'Annuler',
         role: 'cancel',
@@ -29,7 +28,12 @@ export class AlertPage implements OnInit {
       {
         text: 'Valider',
         cssClass: 'bg-primary',
-        handler: () => {this.message = 'Bonjour'}
+        handler: (data) => {this.message = `Bonjour, ${data.nom}`}
+      }],
+      inputs: [{
+        name: 'nom',
+        type: 'text',
+        placeholder: 'Entrez un nom ...'
       }]
     });
     await alert.present();

@@ -9,3 +9,29 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+ :root {
+    .alert-wrapper {
+        background: #FCFEFF;
+        display: block;
+        margin: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .alert .alert-head,
+    .alert-input-group,
+    .alert .alert-button {
+        background: #211e1e;
+        color: white;
+    }
+    .alert-head h2 {
+        color: #d7cbed;
+    }
+    .alert .alert-message {
+        display: none;
+    }
+    .alert-input {
+        background: #212121;
+    }
+}

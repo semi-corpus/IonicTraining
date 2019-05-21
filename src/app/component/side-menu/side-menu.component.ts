@@ -15,13 +15,14 @@ export class SideMenuComponent implements OnInit {
     this.pages = [
       {name: 'home', title: 'Accueil'},
       {name: 'grid', title: 'Grid'},
-      {name: 'alert', title: 'Alerte'}
+      {name: 'alert', title: 'Alerte'},
+      {name: 'animals', title: 'Animals'}
     ];
   }
 
   ngOnInit() {}
 
-  selectPage(name: string) {
+  selectPage(name: string) {    
     this.router.navigateByUrl('/' + name);
     this.menu.close()
   }
