@@ -1,4 +1,4 @@
 # Install Node Modules
-cd .../IonicTraining
-npm install node-modules
+cd .../IonicTraining <br>
+npm install node-modules <br>
 ionic serve --lab
